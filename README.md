@@ -1,4 +1,4 @@
-# self-adaptive-fish-food-dispenser
+# Self-Adaptive Autonomous Aquatic Live Stock Feed Dispenser
 
 ## Overview
 
