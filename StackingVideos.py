@@ -1,3 +1,5 @@
+##Just import this file and use the function from the import directly such as stackImages(0.6,imgarray)
+
 import cv2,numpy as np
 def stackImages(scale,imgArray):
     rows = len(imgArray)
