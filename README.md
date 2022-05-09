@@ -26,3 +26,10 @@ The `jetson.py` file is the main host for the Nvidia Jetson and will hold the Te
 ## Firebase JSON Database
 
 ![Example 2](firebase-json-example.PNG)
+
+## Sources
+Ubuntu Tensorflow: https://github.com/KumaTea/tensorflow-aarch64/releases
+Image Etcher: Balena Etcher
+Device Manager: ONVIF
+VNC: RealVNC Viewer
+Arduino: Arduino
