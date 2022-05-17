@@ -1,6 +1,11 @@
-# Feed Device
+# Self Adaptive Aquatic Live Stock Feed Dispenser
 
-This repository contains implementations to be hosted on the feeding device.
+This project's aim is to design and develop a adaptive self scheduling aquatic live stock feeding device that would adjust feeding schedules according to the produce's appetite and nutritional requirement through image analysis and ambient data analysis. This project is motivated by the 30 by 30 goal set by Singapore Food Agency to build resilience to external supplies.
+
+This project compromises of 3 major parts, data collection, feed control and schedule optimization.
+Data collection involves collecting and annotating data for training.
+Feed control involves image segmentation of floating feeds
+Schedule optimization involves studying behavior of fishes w.r.t feeding timetable using ant colony algorithm.
 
 ## Instructions
 
