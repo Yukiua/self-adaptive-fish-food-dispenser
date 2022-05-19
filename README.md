@@ -1,11 +1,6 @@
-# Self Adaptive Aquatic Live Stock Feed Dispenser
+# Feed Device
 
-This project's aim is to design and develop a adaptive self scheduling aquatic live stock feeding device that would adjust feeding schedules according to the produce's appetite and nutritional requirement through image analysis and ambient data analysis. This project is motivated by the 30 by 30 goal set by Singapore Food Agency to build resilience to external supplies.
-
-This project compromises of 3 major parts, data collection, feed control and schedule optimization.
-Data collection involves collecting and annotating data for training.
-Feed control involves image segmentation of floating feeds
-Schedule optimization involves studying behavior of fishes w.r.t feeding timetable using ant colony algorithm.
+This repository contains implementations to be hosted on the feeding device.
 
 ## Instructions
 
@@ -40,6 +35,12 @@ Network of the entire setup, along with their static IPv4 ranges.
 
 ## Sources
 
-Ubuntu Tensorflow = [tensorflow-aarch64](https://github.com/KumaTea/tensorflow-aarch64/releases)
+Ubuntu Tensorflow(depends on kernel) = [tensorflow-aarch64](https://github.com/KumaTea/tensorflow-aarch64/releases)
+
 Device Manager/RSTP IP Finder = [ONVIF Device Manager](https://learncctv.com/onvif-device-manager/)
+
 Real-Time Database = [Firebase](https://www.youtube.com/watch?v=qKxisFLQRpQ)
+
+RaspberryPi GrovePi Library = [DexterIndustries](https://github.com/DexterInd/GrovePi)
+
+Arduino: Stepper.h library, Arduino Nano RP2040 Standard Library, DHT Sensor Library

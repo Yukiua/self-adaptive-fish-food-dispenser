@@ -28,9 +28,11 @@ users_ref = ref.child('rpi')
 grovepi.set_bus("RPI_1")
 # Connect the Grove Ultrasonic Ranger to D4, PIR Motion to D7
 ultrasonic_ranger = 4
+buzzer = 8
 pir_sensor = 7
 motion=0
 grovepi.pinMode(pir_sensor,"INPUT")
+grovepi.pinMode(buzzer,"OUTPUT")
 ser = serial.Serial('/dev/ttyACM0',9600,timeout=0) #CHANGE DEPENDING ON /dev/ttyACM?
 ser.flush()
 ser1 = serial.Serial('dev/ttyACM1',9600,timeout=0) #CHANGE DEPENDING ON /dev/ttyACM?
@@ -42,6 +44,12 @@ while True:
     try:
         # Read distance value from Ultrasonic
         print(grovepi.ultrasonicRead(ultrasonic_ranger))
+        if(grovepi.ultrasonicRead(ultrasonic_ranger) < 2): #sounds the buzzer if water level is too high, please take box away bc prob flood
+            grovepi.digitalWrite(buzzer,1)
+            time.sleep(1)
+        else:
+            grovepi.digitalWrite(buzzer,0)
+            time.sleep(1)
         motion=grovepi.digitalRead(pir_sensor)
         if motion==0 or motion==1:	# check if reads were 0 or 1 it can be 255 also because of IO Errors so remove those values
             if motion==1:

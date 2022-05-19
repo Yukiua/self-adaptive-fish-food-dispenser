@@ -1,3 +1,6 @@
+#This Python file is to check if all the cameras are connected. 172.20.129.23 is the router's WAN and 10700~ etc are the ports of the cameras
+#Create a static IPv4 for the cameras and port forward it to a specific port
+#RTSP user is admin, password is admin123456
 import cv2
 import numpy as np
 import time

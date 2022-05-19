@@ -6,29 +6,10 @@ from keras.optimizers import *
 import numpy as np
 import math
 from utilities import *
-import firebase_admin
-from firebase_admin import credentials,db
-import datetime
 import time
 
-def firebase(motorPercent):
-    cred = credentials.Certificate("CERTIFICATE.json")
-    firebase_admin.initialize_app(cred,{'databaseURL': 'https://DATABASE.app'})
-    ref = db.reference('raspberrypi/')
-    users_ref = ref.child('motor')
-    fulldatetime = str(datetime.datetime.now())
-    dateE = fulldatetime.split(' ')[0]
-    timeE = fulldatetime.split(' ')[1].split('.')[0]
-    #TODO: figure out partitions for how much percent until speed changes
-    #Stepper Motor: More Speed = Less Feed Dropped, Less Speed, More Feed Dropped
-    if(0 <= motorPercent <= 15):motor = 0.6
-    elif(15 <= motorPercent <= 35):motor = 0.75
-    elif(35 <= motorPercent):motor = 0.9
-
-    users_ref.child("{0};{1}".format(dateE,timeE)).set({"Motor":motor})
-    handle = db.reference('raspberrypi/motor/{0};{1}'.format(dateE,timeE))
-
 try:
+    #Check if NVIDIA GPU CUDA is connected
     physical_devices = tf.config.list_physical_devices('GPU')
     tf.config.experimental.set_memory_growth(physical_devices[0], True)
 except:
@@ -50,6 +31,8 @@ if (cap.isOpened()== False):
     print("Error opening video stream or file")
 
 while cap.isOpened():
+    #INEFFICIENT! This code uses the cv2 cpu, which is not what we want as the processing speed
+    #CUDA cv2 is what we want, but theres barely any time to write it
     ret, frame = cap.read()
     
     if ret == True:
@@ -78,7 +61,7 @@ while cap.isOpened():
         cv2.putText(contour, f"Feed % {math.ceil(feed_percentage)}", (5, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 238, 0), 2, cv2.LINE_AA)
 
         cv2.imshow('Video', contour)
-        #firebase(math.ceil(feed_percentage))
+        firebase(math.ceil(feed_percentage))
         time.sleep(1)
         # Press Q on keyboard to  exit
         if cv2.waitKey(1) & 0xFF == ord('q'):
