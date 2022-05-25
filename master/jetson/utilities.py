@@ -44,9 +44,9 @@ def firebase(motorPercent):
     timeE = fulldatetime.split(' ')[1].split('.')[0]
     #TODO: Depending on project scope + stepper motor specs, change this
     #Stepper Motor: More Speed = Less Feed Dropped, Less Speed, More Feed Dropped
-    if(1 <= motorPercent <= 15):motor = 0.6
-    elif(15 <= motorPercent <= 35):motor = 0.75
-    elif(35 <= motorPercent):motor = 0.9
+    if(1 <= motorPercent <= 25):motor = 0.6
+    elif(25 < motorPercent <= 40):motor = 0.75
+    elif(40 < motorPercent):motor = 0.9
     elif(motorPercent == 0): motor = 0
     #The motor speed is has a range depending on its RPM, in which it is 10-15 RPM.
     #This value is sent to Firebase, and will be retrieved in the rpi
