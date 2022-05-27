@@ -9,7 +9,7 @@ frameWidth = 640
 frameHeight = 480
 widthImg = 720
 heightImg = 500
-cap = cv2.VideoCapture("rtsp://admin:admin123456@172.20.129.250:554/av0_0")
+cap = cv2.VideoCapture("rtsp://admin:admin123456@172.20.129.23:10700/cam/realmonitor?channel=1&subtype=0")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
