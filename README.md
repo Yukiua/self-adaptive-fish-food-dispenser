@@ -1,3 +1,7 @@
+# Self Adaptive Fish Food Dispenser
+
+The aim of this project is to use Computer Vision to capture the appetite of the fish and feed them in inverse proportion based on the percentage of fish food covering the camera screen.
+
 # Feed Device
 
 This repository contains implementations to be hosted on the feeding device.
